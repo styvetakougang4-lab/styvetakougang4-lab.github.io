@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Takougang 237 – Gestion de réseaux sociaux pour commerces au Cameroun</title>
+<meta name="description" content="Takougang 237 gère la page Facebook, Instagram et WhatsApp de votre commerce : publications, réponses aux clients et rapport mensuel. 100 000 FCFA par mois.">
+<meta property="og:title" content="Takougang 237 – Gestion de réseaux sociaux pour commerces">
+<meta property="og:description" content="Publications, réponses aux clients et rapport mensuel pour votre commerce. 100 000 FCFA par mois, sans engagement.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_CM">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F8F2;
+  --surface:#FFFFFF;
+  --ink:#13231A;
+  --muted:#4E6157;
+  --green:#0C6B45;
+  --green-deep:#0A4D33;
+  --sun:#FFC62B;
+  --line:#D5DFD3;
+  --on-green:#FFFFFF;
+  --bubble-in:#FFFFFF;
+  --bubble-out:#D8F3DC;
+  --chat-bg:#E7EFE3;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme:dark;
+    --bg:#0E1813;
+    --surface:#16241D;
+    --ink:#EAF2EC;
+    --muted:#A3B8AB;
+    --green:#3FBF86;
+    --green-deep:#0C6B45;
+    --sun:#FFC62B;
+    --line:#2A3D33;
+    --on-green:#08140E;
+    --bubble-in:#1F3128;
+    --bubble-out:#14573A;
+    --chat-bg:#101C16;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);
+  line-height:1.6;font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+
+header{padding:20px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{font-weight:800;font-size:1.25rem;text-decoration:none;letter-spacing:-.01em}
+.brand span{background:var(--sun);color:#13231A;padding:1px 8px;border-radius:6px;margin-left:4px}
+.nav-cta{font-weight:600;font-size:.95rem;text-decoration:none;border-bottom:2px solid var(--sun)}
+
+.hero{padding:40px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+h1{
+  font-size:clamp(2.2rem,5.6vw,3.9rem);
+  line-height:1.04;font-weight:800;letter-spacing:-.03em;
+}
+.lead{margin-top:22px;font-size:1.15rem;color:var(--muted);max-width:34em}
+.actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{
+  display:inline-block;background:var(--green);color:var(--on-green);
+  font-weight:700;text-decoration:none;padding:15px 26px;border-radius:12px;
+  font-size:1.05rem;transition:transform .15s ease, background .15s ease;
+}
+.btn:hover{background:var(--green-deep);color:#fff;transform:translateY(-2px)}
+.price-note{color:var(--muted);font-size:.95rem}
+
+.chat{
+  background:var(--chat-bg);border:1px solid var(--line);border-radius:22px;
+  padding:18px;display:flex;flex-direction:column;gap:10px;
+  box-shadow:0 18px 40px -22px rgba(10,77,51,.45);
+}
+.chat-head{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line);font-weight:600;font-size:.95rem}
+.dot{width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--on-green);display:grid;place-items:center;font-weight:800;font-size:.85rem}
+.msg{max-width:84%;padding:10px 14px;border-radius:16px;font-size:.95rem;line-height:1.45;opacity:0;animation:pop .45s ease forwards}
+.msg.in{background:var(--bubble-in);border-bottom-left-radius:4px;align-self:flex-start}
+.msg.out{background:var(--bubble-out);border-bottom-right-radius:4px;align-self:flex-end}
+.msg small{display:block;margin-top:4px;color:var(--muted);font-size:.75rem}
+.msg:nth-of-type(1){animation-delay:.3s}
+.msg:nth-of-type(2){animation-delay:1.2s}
+.msg:nth-of-type(3){animation-delay:2.2s}
+.msg:nth-of-type(4){animation-delay:3.1s}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.7rem,3.6vw,2.4rem);line-height:1.1;letter-spacing:-.02em;font-weight:800;max-width:18em}
+.sub{margin-top:12px;color:var(--muted);max-width:36em}
+
+.offer{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.offer-box{background:var(--surface);border:2px solid var(--green);border-radius:18px;padding:28px}
+.offer-box .amount{font-size:2.6rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.offer-box .amount span{font-size:1rem;font-weight:600;color:var(--muted);letter-spacing:0;margin-left:6px}
+.offer-box p{margin-top:12px;color:var(--muted);font-size:.95rem}
+.checks{list-style:none;display:grid;gap:14px}
+.checks li{display:flex;gap:12px;align-items:flex-start}
+.checks li::before{
+  content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;
+  background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/14px no-repeat;
+}
+
+.who{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+.who span{background:var(--surface);border:1px solid var(--line);padding:9px 16px;border-radius:999px;font-weight:600;font-size:.95rem}
+
+.steps{margin-top:34px;list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.steps li{counter-increment:s;border-left:4px solid var(--sun);padding:2px 0 2px 18px}
+.steps li::before{content:"Étape " counter(s);display:block;color:var(--muted);font-size:.85rem;font-weight:600;margin-bottom:4px}
+.steps strong{display:block;font-size:1.1rem;margin-bottom:4px}
+.steps p{color:var(--muted);font-size:.95rem}
+
+.contact{background:var(--green-deep);color:#fff;border-top:none}
+.contact .wrap{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:center}
+.contact h2{color:#fff}
+.contact p{margin-top:12px;color:#CFE8DA;max-width:30em}
+.btn-sun{background:var(--sun);color:#13231A}
+.btn-sun:hover{background:#ffd75e;color:#13231A}
+.phone{margin-top:12px;font-weight:600;color:#CFE8DA}
+
+footer{padding:26px 0;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+.faq{margin-top:28px;display:grid;gap:12px;max-width:44em}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:800;color:var(--green)}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin-top:10px;color:var(--muted);font-size:.97rem}
+
+.wa-float{
+  position:fixed;right:18px;bottom:18px;z-index:50;
+  background:#25D366;color:#08140E;font-weight:700;text-decoration:none;
+  padding:13px 20px;border-radius:999px;font-size:.98rem;
+  box-shadow:0 10px 24px -8px rgba(0,0,0,.45);
+}
+.wa-float:hover{background:#3be07a}
+
+@media (max-width:820px){
+  .hero .wrap,.offer{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .hero{padding-bottom:48px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .msg{animation:none;opacity:1}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#">Takougang<span>237</span></a>
+    <a class="nav-cta" href="#contact">Me contacter</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Vos clients sont sur Facebook et Instagram. Soyez présent.</h1>
+        <p class="lead">Je gère les réseaux sociaux de votre commerce : je publie, je réponds aux messages et je vous montre chaque mois ce que ça rapporte. Vous restez concentré sur votre activité.</p>
+        <div class="actions">
+          <a class="btn" href="https://wa.me/237698320536?text=Bonjour%20Takougang%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20votre%20offre." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+          <span class="price-note">100 000 FCFA par mois</span>
+        </div>
+      </div>
+
+      <div class="chat" aria-label="Exemple de conversation avec un client">
+        <div class="chat-head"><div class="dot">T</div>Salon Belle Image</div>
+        <div class="msg in">Bonjour, vous êtes ouverts dimanche ? Je veux prendre rendez-vous pour une coiffure.<small>09:12</small></div>
+        <div class="msg out">Bonjour ! Oui, nous ouvrons de 9h à 17h. Je vous réserve 11h ?<small>09:13</small></div>
+        <div class="msg in">Parfait. C'est combien pour des tresses ?<small>09:14</small></div>
+        <div class="msg out">À partir de 8 000 FCFA. Je vous envoie le catalogue photo.<small>09:14</small></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="offre">
+    <div class="wrap">
+      <h2>Une offre simple, tout compris</h2>
+      <p class="sub">Un prix fixe par mois, sans frais cachés.</p>
+      <div class="offer">
+        <div class="offer-box">
+          <div class="amount">100 000<span>FCFA / mois</span></div>
+          <p>Paiement par Orange Money ou MTN Mobile Money, en début de mois.</p>
+        </div>
+        <ul class="checks">
+          <li>12 publications par mois (photos, affiches, courtes vidéos)</li>
+          <li>Réponses aux messages de vos clients sur Facebook, Instagram et WhatsApp</li>
+          <li>Un rapport mensuel : combien de personnes ont vu et contacté votre commerce</li>
+          <li>Trois publications offertes pour tester, sans engagement</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="pour-qui">
+    <div class="wrap">
+      <h2>Pour les commerces et services de votre quartier</h2>
+      <div class="who">
+        <span>Restaurants</span>
+        <span>Salons de coiffure et beauté</span>
+        <span>Boutiques</span>
+        <span>Cliniques et pharmacies</span>
+        <span>Écoles et centres de formation</span>
+        <span>Traiteurs et pâtisseries</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="deroulement">
+    <div class="wrap">
+      <h2>Comment on démarre</h2>
+      <ol class="steps">
+        <li><strong>On discute</strong><p>Un échange sur WhatsApp pour comprendre votre commerce, vos produits et vos clients.</p></li>
+        <li><strong>Je publie</strong><p>Vous validez le premier lot de publications, puis je m'occupe du reste chaque semaine.</p></li>
+        <li><strong>Vous suivez</strong><p>Chaque mois, vous recevez un rapport clair avec les résultats.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>Questions fréquentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Faut-il un compte Facebook ou Instagram pour commencer ?</summary>
+          <p>Si vous n'en avez pas, je crée la page de votre commerce avec vous lors de la première étape.</p>
+        </details>
+        <details>
+          <summary>Comment se passe le paiement ?</summary>
+          <p>Par Orange Money ou MTN Mobile Money, en début de mois, une fois l'accord confirmé sur WhatsApp.</p>
+        </details>
+        <details>
+          <summary>Puis-je arrêter quand je veux ?</summary>
+          <p>Oui. L'offre est mensuelle et sans engagement : vous pouvez arrêter à la fin de n'importe quel mois.</p>
+        </details>
+        <details>
+          <summary>Qui choisit le contenu des publications ?</summary>
+          <p>Je propose, vous validez. Rien n'est publié sans votre accord au démarrage.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <h2>Parlons de votre commerce</h2>
+        <p>Écrivez-moi sur WhatsApp. Je réponds dans la journée.</p>
+        <div class="phone">+237 698 32 05 36</div>
+      </div>
+      <a class="btn btn-sun" href="https://wa.me/237698320536?text=Bonjour%20Takougang%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20votre%20offre." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Takougang 237</span>
+    <span>Gestion de réseaux sociaux · Cameroun</span>
+  </div>
+</footer>
+
+<a class="wa-float" hr
